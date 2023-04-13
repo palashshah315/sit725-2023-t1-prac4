@@ -12,16 +12,11 @@ const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://palashshah315:palashshah315@cluster0.i0bhvhx.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 function connect() {
-    console.log("CONNECTING....!");
-
-
     client.connect(err => {
 
         if (err) console.log(err);
         else {
-            console.log("HERE");
             projectCollection = client.db("test").collection("Cats");
-            console.log("HERE2");
         };
     });
 }
@@ -40,7 +35,7 @@ app.post('/api/projects', (req, res) => {
         if (error) {
             res.json({ statusCode: 400, message: error });
         } else {
-            res.json({ statusCode: 200, data: result, message: 'project successfully added' });
+            res.json({ statusCode: 200, data: result, message: 'successfully added' });
         }
     });
 });
